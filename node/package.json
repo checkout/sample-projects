@@ -1,0 +1,22 @@
+{
+    "name": "node-sdk-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "nodemon"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "checkout-sdk-node": "^1.0.0",
+        "cors": "^2.8.4",
+        "cross-spawn": "^7.0.2",
+        "express": "^4.16.4",
+        "ngrok": "^3.2.5",
+        "nodemon": "^2.0.20",
+        "open": "^7.0.3"
+    },
+    "keywords": [],
+    "author": "Ioan Ghisoi",
+    "license": "ISC"
+}

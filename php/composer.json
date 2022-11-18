@@ -1,0 +1,15 @@
+{
+    "name": "checkout/checkout-php-sample",
+    "description": "This is the description of the project.",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6",
+        "checkout/checkout-sdk-php": "3.0.6",
+        "monolog/monolog": "^1.27 || ^2.4 || ^3.0.0",
+      "ext-json": "*"
+    },
+    "scripts": {
+        "start": "php -S localhost:8000 "
+    }
+}

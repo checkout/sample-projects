@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "CheckoutSample": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "hotReloadEnabled": false,
+      "applicationUrl": "https://localhost:4243;http://localhost:4242",
+      "dotnetRunMessages": true
+    }
+  }
+}

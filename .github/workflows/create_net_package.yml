@@ -1,0 +1,46 @@
+name: Create .Net Package
+ 
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'net/**'
+
+jobs:
+  create_net_package_and_push:
+    name: Create .Net package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip .Net files
+        run: |
+           zip -r ../net.zip net
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip .Net file to workspace
+        run: |
+          mv ../net.zip .
+
+      - name: Push zip .Net file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add net.zip
+          git commit -m "Added new .Net package: '${{ github.event.pull_request.title }}'"
+          git push
+          
+  

@@ -1,0 +1,27 @@
+version: 2
+updates:
+
+  - package-ecosystem: "gradle"
+    directory: "/java"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "nuget"
+    directory: "/net"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/node"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "composer"
+    directory: "/php"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "pip"
+    directory: "/python"
+    schedule:
+      interval: "daily"

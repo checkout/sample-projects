@@ -1,0 +1,77 @@
+name: main
+
+on:
+
+  pull_request:
+    types:
+      - closed
+
+    branches:
+      - 'main'
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: java sample
+        id: java
+        uses: tj-actions/changed-files@v35
+        with:
+          files: java
+      - name: if any file(s) in java sample change
+        if: steps.java.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: java-artifact
+          path: dist/java
+
+      - name: net sample
+        id: net
+        uses: tj-actions/changed-files@v35
+        with:
+          files: net
+      - name: if any file(s) in net sample change
+        if: steps.net.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: net-artifact
+          path: dist/net
+
+      - name: node sample
+        id: node
+        uses: tj-actions/changed-files@v35
+        with:
+          files: node
+      - name: if any file(s) in node sample change
+        if: steps.node.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: node-artifact
+          path: dist/node
+
+      - name: php sample
+        id: php
+        uses: tj-actions/changed-files@v35
+        with:
+          files: php
+      - name: if any file(s) in php sample change
+        if: steps.php.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: php-artifact
+          path: dist/php
+
+      - name: python sample
+        id: python
+        uses: tj-actions/changed-files@v35
+        with:
+          files: python
+      - name: if any file(s) in python sample change
+        if: steps.python.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-artifact
+          path: dist/python

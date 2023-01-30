@@ -1,0 +1,46 @@
+name: Create Node Package
+ 
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'node/**'
+
+jobs:
+  create_node_package_and_push:
+    name: Create Node package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip Node files
+        run: |
+           zip -r ../node.zip node
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip Node file to workspace
+        run: |
+          mv ../node.zip .
+
+      - name: Push zip Node file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add node.zip
+          git commit -m "Added new Node package: '${{ github.event.pull_request.title }}'"
+          git push
+          
+  

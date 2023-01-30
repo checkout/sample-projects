@@ -1,0 +1,46 @@
+name: Create Python Package
+ 
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'python/**'
+
+jobs:
+  create_python_package_and_push:
+    name: Create Python package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip Python files
+        run: |
+           zip -r ../python.zip python
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip Python file to workspace
+        run: |
+          mv ../python.zip .
+
+      - name: Push zip Python file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add python.zip
+          git commit -m "Added new Python package: '${{ github.event.pull_request.title }}'"
+          git push
+          
+  

@@ -1,0 +1,46 @@
+name: Create PHP Package
+ 
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'php/**'
+
+jobs:
+  create_php_package_and_push:
+    name: Create PHP package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip PHP files
+        run: |
+           zip -r ../php.zip php
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip PHP file to workspace
+        run: |
+          mv ../php.zip .
+
+      - name: Push zip PHP file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add php.zip
+          git commit -m "Added new PHP package: '${{ github.event.pull_request.title }}'"
+          git push
+          
+  

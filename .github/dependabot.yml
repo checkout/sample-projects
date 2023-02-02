@@ -5,23 +5,33 @@ updates:
     directory: "/java"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-java"
 
   - package-ecosystem: "nuget"
     directory: "/net"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-net"
 
   - package-ecosystem: "npm"
     directory: "/node"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-node"
 
   - package-ecosystem: "composer"
     directory: "/php"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-php"
 
   - package-ecosystem: "pip"
     directory: "/python"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-python"

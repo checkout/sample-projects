@@ -14,7 +14,7 @@
         "express": "^4.16.4",
         "ngrok": "^3.2.5",
         "nodemon": "^2.0.20",
-        "open": "^7.0.3"
+        "open": "^8.4.0"
     },
     "keywords": [],
     "author": "Ioan Ghisoi",

@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "body-parser": "^1.19.0",
-        "checkout-sdk-node": "^1.0.0",
+        "checkout-sdk-node": "^2.1.1",
         "cors": "^2.8.4",
         "cross-spawn": "^7.0.2",
         "express": "^4.16.4",

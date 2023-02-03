@@ -6,7 +6,7 @@
     "require": {
         "php": ">=5.6",
         "checkout/checkout-sdk-php": "3.0.7",
-        "monolog/monolog": "^1.27 || ^2.4 || ^3.0.0",
+        "monolog/monolog": "^1.x-dev",
       "ext-json": "*"
     },
     "scripts": {

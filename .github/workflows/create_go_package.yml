@@ -1,0 +1,45 @@
+name: Create Go Package
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'go/**'
+
+jobs:
+  create_go_package_and_push:
+    name: Create Go package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip Go files
+        run: |
+          zip -r ../go.zip go
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip Go file to workspace
+        run: |
+          mv ../go.zip .
+
+      - name: Push zip Go file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add go.zip
+          git commit -m "Added new Go package: '${{ github.event.pull_request.title }}'"
+          git push
+

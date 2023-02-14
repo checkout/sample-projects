@@ -1,6 +1,13 @@
 version: 2
 updates:
 
+  - package-ecosystem: "gomod"
+    directory: "/go"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-go"
+
   - package-ecosystem: "gradle"
     directory: "/java"
     schedule:

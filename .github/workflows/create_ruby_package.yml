@@ -1,0 +1,45 @@
+name: Create Ruby Package
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+    paths:
+      - 'ruby/**'
+
+jobs:
+  create_ruby_package_and_push:
+    name: Create Ruby package and push
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip Ruby files
+        run: |
+           zip -r ../ruby.zip ruby
+
+      - name: Checkout packages branch
+        uses: actions/checkout@v3
+        with:
+          ref: packages
+
+      - name: Move zip Ruby file to workspace
+        run: |
+          mv ../ruby.zip .
+
+      - name: Push zip Ruby file to packages branch
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+          git add ruby.zip
+          git commit -m "Added new Ruby package: '${{ github.event.pull_request.title }}'"
+          git push
+

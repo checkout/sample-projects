@@ -35,3 +35,10 @@ updates:
       interval: "weekly"
     allow:
       - dependency-name: "checkout-sdk-python"
+
+  - package-ecosystem: "bundler"
+    directory: "/ruby"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-name: "checkout-sdk-ruby"

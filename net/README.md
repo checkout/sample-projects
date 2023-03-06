@@ -4,8 +4,7 @@ This project uses `Microsoft.AspNetCore.App` and `net6.0` and `NuGetPackages` as
 
 # :sparkles: Before Start
 
-To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?)
-that helps you tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
+To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?) that helps you tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
 
 ````html
 <form id="payment-form" method="POST">
@@ -51,8 +50,7 @@ On the backed you need to initiate the SDK with the proper `Secret Key` as follo
 
 If you have any questions regarding SDK usage, please refer to SDK landing [page](https://github.com/checkout/checkout-sdk-net)
 
-Then you need to build your request, in this case is a `payment request` with `token source` and then
-just call the the SDK function to request a payment
+Then you need to build your request, in this case is a `payment request` with `token source` and then just call the the SDK function to request a payment
 
 ```cs
 try

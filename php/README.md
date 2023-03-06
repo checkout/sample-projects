@@ -1,12 +1,10 @@
 This project is an example of how to start an integration with PHP and [Checkout SDK](https://github.com/checkout/checkout-sdk-php)
 
-This project uses `composer` as the package manager for all the requirements that a project needs,
-ensure that you have composer installed before running the project.
+This project uses `composer` as the package manager for all the requirements that a project needs, ensure that you have composer installed before running the project.
 
 # :sparkles: Before Start
 
-To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?)
-that helps you to tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
+To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?) that helps you to tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
 
 ````html
 <form id="payment-form" method="POST">

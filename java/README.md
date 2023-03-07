@@ -1,12 +1,10 @@
 This project is an example of how to start an integration with JAVA and [Checkout SDK](https://github.com/checkout/checkout-sdk-java)
 
-This project uses `Gradle` as the dependencies manager for all the requirements that a project needs,
-ensure that you have Gradle installed before running the project.
+This project uses `Gradle` as the dependencies manager for all the requirements that a project needs, ensure that you have Gradle installed before running the project.
 
 # :sparkles: Before Start
 
-To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?)
-that helps you to tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
+To remain comply with PCI regulations, you need to protect your card numbers, fortunately Checkout have [Frames Framework](https://www.checkout.com/docs/integrate/frames#Who_is_Frames_for?) that helps you to tokenize the payment card, this wrapper includes method `submitCard()`. In the below example, we call this when the "Pay Now" button is clicked.
 
 ````html
 <form id="payment-form" method="POST">
@@ -38,8 +36,7 @@ Make sure to provide your correct `Public Key` in `script.js`, which is the key 
 Frames.init('pk_sbox_XXX');
 ````
 
-Once that Frames validates and returns the tokenized token, then you can add another event to handle the request
-to the backed. If you have any questions regarding the Frames events you can visit the [documentation page](https://www.checkout.com/docs/integrate/frames/frames-reference)
+Once that Frames validates and returns the tokenized token, then you can add another event to handle the request to the backed. If you have any questions regarding the Frames events you can visit the [documentation page](https://www.checkout.com/docs/integrate/frames/frames-reference)
 
 On the backed you need to initiate the SDK with the proper `Secret Key` as follows:
 
@@ -60,8 +57,7 @@ try {
 
 If you have any questions regarding SDK usage, please refer to SDK landing [page](https://github.com/checkout/checkout-sdk-java)
 
-Then you need to build your request, in this case is a `payment request` with `token source` and then
-just call the SDK function to request a payment
+Then you need to build your request, in this case is a `payment request` with `token source` and then just call the SDK function to request a payment
 
 ```java
 RequestTokenSource tokenSource = RequestTokenSource.builder()

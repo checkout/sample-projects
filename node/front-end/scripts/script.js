@@ -2,7 +2,7 @@ var payButton = document.getElementById('pay-button');
 var form = document.getElementById('payment-form');
 var errorStack = [];
 
-Frames.init('pk_sbox_xg66bnn6tpspd6pt3psc7otrqa=');
+Frames.init('pk_sbox_XXX');
 
 // Only enable the payment button when the payment form is valid
 Frames.addEventHandler(

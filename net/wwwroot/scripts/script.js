@@ -29,7 +29,7 @@ Frames.addEventHandler(Frames.Events.CARD_TOKENIZED, (event) => {
         },
         // This function is called after the server code is executed
         (response) => {
-            if (response.status >= '300') {
+            if (response.status >= '400') {
                 var errorMessageElement = document.querySelector('.error-message');
                 errorMessageElement.textContent = "Unexpected error occurred while processing payment";
             } else {

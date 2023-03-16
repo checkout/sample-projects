@@ -1,3 +1,6 @@
+[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_net_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_net_package.yml)
+[![NuGet](https://img.shields.io/nuget/v/CheckoutSDK.svg)](https://www.nuget.org/packages/CheckoutSDK)
+
 This project is an example of how to start an integration with .Net and [Checkout SDK](https://github.com/checkout/checkout-sdk-net)
 
 This project uses `Microsoft.AspNetCore.App` and `net6.0` and `NuGetPackages` as the package manager for all the requirements that a project needs.
@@ -59,7 +62,8 @@ try
     {
         Source = new RequestTokenSource { Token = data.Token },
         Amount = 2499,
-        Currency = Currency.GBP
+        Currency = Currency.GBP,
+        ProcessingChannelId = "pc_XXX"
     };
 
     var response = await _checkoutApi.PaymentsClient().RequestPayment(request);

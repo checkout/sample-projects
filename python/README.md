@@ -1,9 +1,9 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_php_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_php_package.yml)
-[![Latest Stable Version](http://poser.pugx.org/checkout/checkout-sdk-php/v)](https://packagist.org/packages/checkout/checkout-sdk-php)
+[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_python_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_python_package.yml)
+[![PyPI - latest](https://img.shields.io/pypi/v/checkout-sdk?label=latest&logo=pypi)](https://pypi.org/project/checkout-sdk)
 
-This project is an example of how to start an integration with PHP and [Checkout SDK](https://github.com/checkout/checkout-sdk-php)
+This project is an example of how to start an integration with Python and [Checkout SDK](https://github.com/checkout/checkout-sdk-python)
 
-This project uses `composer` as the package manager for all the requirements that a project needs, ensure that you have composer installed before running the project.
+This project uses `pip` as the package manager for all the requirements that a project needs, ensure that you have pip installed before running the project.
 
 # :sparkles: Before Start
 
@@ -44,39 +44,35 @@ to the backed. If you have any questions regarding the Frames events you can vis
 
 On the backed you need to initiate the SDK with the proper `Secret Key` as follows:
 
-```php
-try {
-    $api = CheckoutSdk::builder()->staticKeys()
-        ->environment(Environment::sandbox())
-        ->secretKey("sk_sbox_XXX")
-        ->build();
-} catch (CheckoutException $e) {
-    $log->error("An exception occurred while initializing Checkout SDK : {$e->getMessage()}");
-    http_response_code(400);
-}
+```python
+try:
+    sdk = CheckoutSdk.builder() \
+        .secret_key('sk_sbox_XXX') \
+        .environment(environment=Environment.sandbox()) \
+        .build()
+except Exception as e:
+    return json.dumps({'status': e.http_metadata.status_code, 'error-message': e.http_metadata.reason})
 ```
 
-If you have any questions regarding SDK usage, please refer to SDK landing [page](https://github.com/checkout/checkout-sdk-php)
+If you have any questions regarding SDK usage, please refer to SDK landing [page](https://github.com/checkout/checkout-sdk-python)
 
 Then you need to build your request, in this case is a `payment request` with `token source` and then
 just call the the SDK function to request a payment
 
-```php
-$requestTokenSource = new RequestTokenSource();
-$requestTokenSource->token = $request->token;
+```python
+request_token = request.json
 
-$request = new PaymentRequest();
-$request->source = $requestTokenSource;
-$request->amount = 2499;
-$request->currency = Currency::$GBP;
-$request->processing_channel_id = "pc_XXX";
+token_source = RequestTokenSource()
+token_source.token = request_token['token']
 
-try {
-    echo json_encode($api->getPaymentsClient()->requestPayment($request));
-} catch (CheckoutApiException $e) {
-    $log->error("An exception occurred while processing payment request");
-    http_response_code(400);
-}
+payment_request = PaymentRequest()
+payment_request.source = token_source
+payment_request.amount = 2499
+payment_request.currency = Currency.GBP
+payment_request.processing_channel_id = 'pc_XXX'
+
+response = sdk.payments.request_payment(payment_request)
+return json.dumps(response.__dict__, default=lambda o: o.__dict__, indent=4)
 ```
 
 And that's it! Your payment has been processed.
@@ -95,6 +91,7 @@ And that's it! Your payment has been processed.
 # :rocket: Run the project and test it out
 
 ```shell
-composer install
-composer start
+python -m pip install --upgrade pip
+pip install -r requirements-dev.txt
+flask --app app run
 ```

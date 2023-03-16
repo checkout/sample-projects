@@ -1,3 +1,6 @@
+[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_go_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_go_package.yml)
+[![GitHub release](https://img.shields.io/github/release/checkout/checkout-sdk-go.svg)](https://github.com/checkout/checkout-sdk-go/releases/)
+
 This project is an example of how to start an integration with GO and [Checkout SDK](https://github.com/checkout/checkout-sdk-go)
 
 This project uses `Go Modules` as the dependencies manager for all the requirements that a project needs,

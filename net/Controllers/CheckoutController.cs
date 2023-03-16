@@ -27,7 +27,8 @@ public class CheckoutController : Controller
             {
                 Source = new RequestTokenSource { Token = data.Token },
                 Amount = 2499,
-                Currency = Currency.GBP
+                Currency = Currency.GBP,
+                ProcessingChannelId = "pc_XXX"
             };
 
             var response = await _checkoutApi.PaymentsClient().RequestPayment(request);

@@ -54,8 +54,9 @@ public class PaymentsController {
 
         PaymentRequest request = PaymentRequest.builder()
             .source(tokenSource)
-            .currency(Currency.GBP)
             .amount(2499L)
+            .currency(Currency.GBP)
+            .processingChannelId("pc_XXX")
             .build();
 
         PaymentResponse response;

@@ -1,2 +1,2 @@
-checkout-sdk>=3.0.6
+checkout-sdk>=3.0.10
 Flask>=2.0.1

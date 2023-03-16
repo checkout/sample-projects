@@ -1,3 +1,7 @@
+[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_java_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_java_package.yml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.checkout/checkout-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.checkout/checkout-sdk-java/)
+
+
 This project is an example of how to start an integration with JAVA and [Checkout SDK](https://github.com/checkout/checkout-sdk-java)
 
 This project uses `Gradle` as the dependencies manager for all the requirements that a project needs, ensure that you have Gradle installed before running the project.
@@ -66,8 +70,9 @@ RequestTokenSource tokenSource = RequestTokenSource.builder()
 
 PaymentRequest request = PaymentRequest.builder()
                                         .source(tokenSource)
-                                        .currency(Currency.GBP)
                                         .amount(2499L)
+                                        .currency(Currency.GBP)
+                                        .processingChannelId("pc_XXX")
                                         .build();
 
 PaymentResponse response;

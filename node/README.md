@@ -1,3 +1,6 @@
+[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_node_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_node_package.yml)
+[![npm version](https://img.shields.io/npm/v/checkout-sdk-node.svg?style=flat)](https://www.npmjs.com/package/checkout-sdk-node)
+
 This project is an example of how to start an integration with Node and [Checkout SDK](https://github.com/checkout/checkout-sdk-node)
 
 This project uses `npm` as the package manager for all the requirements that a project needs, ensure that you have npm installed before running the project.
@@ -55,9 +58,9 @@ router.post('/pay', async (req, res) => {
         source: {
             token: myToken,
         },
+        amount: 2499,
         currency: 'GBP',
         processing_channel_id: 'pc_zs5fqhybzc2e3jmq3efvybybpq',
-        amount: 2499,
         risk: {
             enabled: false,
         },

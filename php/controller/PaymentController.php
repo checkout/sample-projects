@@ -34,8 +34,9 @@ $requestTokenSource->token = $request->token;
 
 $request = new PaymentRequest();
 $request->source = $requestTokenSource;
-$request->currency = Currency::$GBP;
 $request->amount = 2499;
+$request->currency = Currency::$GBP;
+$request->processing_channel_id = "pc_XXX";
 
 try {
     echo json_encode($api->getPaymentsClient()->requestPayment($request));

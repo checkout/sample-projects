@@ -11,9 +11,9 @@ router.post('/pay', async (req, res) => {
         source: {
             token: myToken,
         },
-        currency: 'GBP',
-        processing_channel_id: 'pc_zs5fqhybzc2e3jmq3efvybybpq',
         amount: 2499,
+        currency: 'GBP',
+        processing_channel_id: 'pc_XXX',
         risk: {
             enabled: false,
         },

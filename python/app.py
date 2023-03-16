@@ -35,8 +35,9 @@ def request_payment():
 
     payment_request = PaymentRequest()
     payment_request.source = token_source
-    payment_request.currency = Currency.GBP
     payment_request.amount = 2499
+    payment_request.currency = Currency.GBP
+    payment_request.processing_channel_id = 'pc_XXX'
 
     response = sdk.payments.request_payment(payment_request)
     return json.dumps(response.__dict__, default=lambda o: o.__dict__, indent=4)

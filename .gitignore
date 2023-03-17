@@ -6,13 +6,3 @@ npm-debug.log
 package-lock.json
 yarn.lock
 *.idea
-
-## PHP
-.php_cs.cache
-phpunit.xml
-.phpunit.result.cache
-composer.lock
-composer.phar
-*.iml
-*.log
-*vendor/

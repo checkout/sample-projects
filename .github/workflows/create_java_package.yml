@@ -4,8 +4,7 @@ on:
   pull_request:
     types:
       - closed
-    branches:
-      - 'main'
+    branches:s      - 'main'
     paths:
       - 'java/**'
 
@@ -16,31 +15,41 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
           ref: main
 
+      - name: Define global config git
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+
       - name: Zip Java files
         run: |
            zip -r ../java.zip java
-
-      - name: Checkout packages branch
-        uses: actions/checkout@v3
-        with:
-          ref: packages
 
       - name: Move zip Java file to workspace
         run: |
           mv ../java.zip .
 
-      - name: Push zip Java file to packages branch
+      - name: Push zip Java file to new branch
         run: |
-          git config --global user.name "Github Actions"
-          git config --global user.email "github-action@users.noreply.github.com"
           git add java.zip
-          git commit -m "Added new Java package: '${{ github.event.pull_request.title }}'"
-          git push
+          git commit -am "Added new Java package: '${{ github.event.pull_request.title }}'"
           
-  
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          base: main
+          branch: feature/java-pr_${{ github.event.pull_request.number }}-${{ github.event.created_at }}
+          branch-suffix: timestamp
+          committer: 'Github Actions <github-action@users.noreply.github.com>'
+          author: 'Github Actions <github-action@users.noreply.github.com>'
+          title: ${{ github.event.pull_request.title }}
+          body: ${{ github.event.pull_request.body }}
+          labels: |
+            java
+            automated pr

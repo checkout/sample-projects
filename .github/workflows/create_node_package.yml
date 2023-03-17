@@ -16,20 +16,21 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
           ref: main
 
+      - name: Define global config git
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "github-action@users.noreply.github.com"
+
       - name: Zip Node files
         run: |
            zip -r ../node.zip node
-
-      - name: Checkout packages branch
-        uses: actions/checkout@v3
-        with:
-          ref: packages
 
       - name: Move zip Node file to workspace
         run: |
@@ -37,10 +38,19 @@ jobs:
 
       - name: Push zip Node file to packages branch
         run: |
-          git config --global user.name "Github Actions"
-          git config --global user.email "github-action@users.noreply.github.com"
           git add node.zip
-          git commit -m "Added new Node package: '${{ github.event.pull_request.title }}'"
-          git push
+          git commit -am "Added new Node package: '${{ github.event.pull_request.title }}'"
           
-  
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          base: main
+          branch: feature/node-pr_${{ github.event.pull_request.number }}-${{ github.event.created_at }}
+          branch-suffix: timestamp
+          committer: 'Github Actions <github-action@users.noreply.github.com>'
+          author: 'Github Actions <github-action@users.noreply.github.com>'
+          title: ${{ github.event.pull_request.title }}
+          body: ${{ github.event.pull_request.body }}
+          labels: |
+            node
+            automated pr

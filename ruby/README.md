@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_ruby_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_ruby_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_ruby_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_ruby_package.yml)
 [![Gem Version](https://badge.fury.io/rb/checkout_sdk.svg)](https://badge.fury.io/rb/checkout_sdk)
 
 This project is an example of how to start an integration with Ruby and [Checkout SDK](https://github.com/checkout/checkout-sdk-ruby)

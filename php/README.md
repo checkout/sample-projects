@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_php_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_php_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_php_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_php_package.yml)
 [![Latest Stable Version](http://poser.pugx.org/checkout/checkout-sdk-php/v)](https://packagist.org/packages/checkout/checkout-sdk-php)
 
 This project is an example of how to start an integration with PHP and [Checkout SDK](https://github.com/checkout/checkout-sdk-php)

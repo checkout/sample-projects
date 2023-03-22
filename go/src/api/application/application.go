@@ -3,7 +3,7 @@ package application
 import (
 	"net/http"
 
-	"github.com/checkout/sdk-samples/go/src/api/controllers"
+	"github.com/checkout/sample-projects/go/src/api/controllers"
 )
 
 type (

@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_node_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_node_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_node_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_node_package.yml)
 [![npm version](https://img.shields.io/npm/v/checkout-sdk-node.svg?style=flat)](https://www.npmjs.com/package/checkout-sdk-node)
 
 This project is an example of how to start an integration with Node and [Checkout SDK](https://github.com/checkout/checkout-sdk-node)

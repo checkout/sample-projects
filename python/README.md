@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_python_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_python_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_python_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_python_package.yml)
 [![PyPI - latest](https://img.shields.io/pypi/v/checkout-sdk?label=latest&logo=pypi)](https://pypi.org/project/checkout-sdk)
 
 This project is an example of how to start an integration with Python and [Checkout SDK](https://github.com/checkout/checkout-sdk-python)

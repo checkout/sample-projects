@@ -1,4 +1,4 @@
-module github.com/checkout/sdk-samples/go
+module github.com/checkout/sample-projects/go
 
 go 1.18
 

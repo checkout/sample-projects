@@ -4,7 +4,7 @@ import (
     "log"
     "net/http"
 
-    "github.com/checkout/sdk-samples/go/src/api/application"
+    "github.com/checkout/sample-projects/go/src/api/application"
 )
 
 func main() {

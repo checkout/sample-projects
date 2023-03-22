@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_java_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_java_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_java_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_java_package.yml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.checkout/checkout-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.checkout/checkout-sdk-java/)
 
 

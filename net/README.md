@@ -1,4 +1,4 @@
-[![build-status](https://github.com/checkout/sdk-samples/actions/workflows/create_net_package.yml/badge.svg)](https://github.com/checkout/sdk-samples/actions/workflows/create_net_package.yml)
+[![build-status](https://github.com/checkout/sample-projects/actions/workflows/create_net_package.yml/badge.svg)](https://github.com/checkout/sample-projects/actions/workflows/create_net_package.yml)
 [![NuGet](https://img.shields.io/nuget/v/CheckoutSDK.svg)](https://www.nuget.org/packages/CheckoutSDK)
 
 This project is an example of how to start an integration with .Net and [Checkout SDK](https://github.com/checkout/checkout-sdk-net)

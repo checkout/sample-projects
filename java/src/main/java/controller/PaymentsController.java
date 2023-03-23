@@ -1,17 +1,11 @@
 package controller;
 
-import com.checkout.CheckoutApiException;
-import com.checkout.CheckoutApiImpl;
-import com.checkout.CheckoutAuthorizationException;
-import com.checkout.CheckoutSdk;
-import com.checkout.Environment;
+import com.checkout.*;
 import com.checkout.common.Currency;
 import com.checkout.payments.request.PaymentRequest;
 import com.checkout.payments.request.source.RequestTokenSource;
 import com.checkout.payments.response.PaymentResponse;
 import com.checkout.tokens.CardTokenResponse;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import errors.ErrorResponse;
 import org.eclipse.jetty.http.HttpStatus;
 import org.slf4j.Logger;
@@ -29,7 +23,7 @@ public class PaymentsController {
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(PaymentsController.class);
-    private static final Gson serializer = new GsonBuilder().create();
+    private static final Serializer serializer = new GsonSerializer();
 
     public static String pay(Request req, Response res) {
 

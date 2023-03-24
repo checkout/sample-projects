@@ -1,3 +1,5 @@
+// "checkout-sdk-node": "^2.1.1"
+
 var router = require('express').Router();
 
 const { Checkout } = require('checkout-sdk-node');

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# 'checkout_sdk', '~> 1.1', '>= 1.1.1'
 
 require 'checkout_sdk'
 require 'sinatra'

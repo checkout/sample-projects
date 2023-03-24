@@ -1,3 +1,5 @@
+# checkout-sdk>=3.0.10
+
 import json
 import os
 

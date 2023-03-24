@@ -1,6 +1,16 @@
+/**
+ * implementation 'com.checkout:checkout-sdk-java:6.0.14'
+ */
+
 package controller;
 
-import com.checkout.*;
+import com.checkout.CheckoutApiException;
+import com.checkout.CheckoutApiImpl;
+import com.checkout.CheckoutAuthorizationException;
+import com.checkout.CheckoutSdk;
+import com.checkout.Environment;
+import com.checkout.GsonSerializer;
+import com.checkout.Serializer;
 import com.checkout.common.Currency;
 import com.checkout.payments.request.PaymentRequest;
 import com.checkout.payments.request.source.RequestTokenSource;

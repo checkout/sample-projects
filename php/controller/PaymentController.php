@@ -1,5 +1,7 @@
 <?php
 
+// "checkout/checkout-sdk-php": "3.0.10"
+
 require '../vendor/autoload.php';
 
 use Checkout\CheckoutApiException;

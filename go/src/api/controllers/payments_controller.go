@@ -1,3 +1,5 @@
+// github.com/checkout/checkout-sdk-go v1.0.5
+
 package controllers
 
 import (

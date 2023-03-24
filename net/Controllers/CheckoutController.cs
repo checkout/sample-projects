@@ -1,4 +1,6 @@
-﻿using Checkout;
+﻿// <PackageReference Include="CheckoutSDK" Version="4.0.10" />
+
+using Checkout;
 using Checkout.Common;
 using Checkout.Payments.Request;
 using Checkout.Payments.Request.Source;

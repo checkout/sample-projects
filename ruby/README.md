@@ -34,7 +34,7 @@ form.addEventListener('submit', function (event) {
 });
 ````
 
-Make sure to provide your correct `Public Key` in `script.js`, which is the key that authorizes to you the access to Checkout API's
+Make sure to provide your correct `Public Key` in `script.js`, which is the key that authorizes to you the access to Checkout API's. This should be stored in a secure location like a password vault and not in code.
 
 ````javascript
 Frames.init('pk_sbox_XXX');
